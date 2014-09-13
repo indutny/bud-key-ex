@@ -27,6 +27,7 @@
   "homepage": "https://github.com/indutny/bud-key-ex",
   "dependencies": {
     "md5-sha1": "^0.2.0",
+    "raw-ecdsa": "^0.1.0",
     "raw-rsa": "^0.1.0"
   }
 }
