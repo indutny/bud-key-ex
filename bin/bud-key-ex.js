@@ -5,6 +5,11 @@ var cluster = require('cluster');
 
 var config = JSON.parse(fs.readFileSync(process.argv[2]) + '');
 
+if (config.secure) {
+  config.secure.key = fs.readFileSync(config.secure.key);
+  config.secure.cert = fs.readFileSync(config.secure.cert);
+}
+
 config.workers = config.workers || 1;
 
 // Load keys
