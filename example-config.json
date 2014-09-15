@@ -1,4 +1,6 @@
 {
   "workers": 24,
-  "key": "keys/key.pem"
+  "key": {
+    "rsa": "keys/key.pem"
+  }
 }

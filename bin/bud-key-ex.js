@@ -15,10 +15,16 @@ config.workers = config.workers || 1;
 // Load keys
 config.sni = config.sni || {};
 Object.keys(config.sni).forEach(function(name) {
-  this[name] = fs.readFileSync(this[name]);
+  var obj = this[name];
+  Object.keys(obj).forEach(function(type) {
+    this[type] = fs.readFileSync(this[type]);
+  }, obj);
 }, config.sni);
 
-config.key = config.key && fs.readFileSync(config.key);
+config.key = config.key || {};
+Object.keys(config.key).forEach(function(type) {
+  this[type] = fs.readFileSync(this[type]);
+}, config.key);
 
 config.port = config.port || 9000;
 config.prefix = config.prefix || '/bud/key-ex/';
